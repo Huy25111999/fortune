@@ -299,6 +299,14 @@ button.btn:active {
   margin-right: 8px;
 }
 
+.lang-dropdown .dropdown-toggle::after{
+  display: none;
+}
+
+.lang-dropdown  ul.dropdown-menu.show, .lang-dropdown:hover .dropdown-menu {
+    left: -22px;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -569,7 +577,7 @@ li.dropdown-item:hover {
 
   .lang-dropdown .dropdown-menu.show,
   .lang-dropdown:hover .dropdown-menu {
-    left: -48px;
+    left: -68px;
     margin-top: 4px;
   }
 
