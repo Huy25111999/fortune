@@ -533,6 +533,9 @@
 
         const isGithub = location.hostname.includes("github.io");
         const dataPath = isGithub ? "/fortune/data/products.json" : "../data/products.json";
+            console.log("dataPath", dataPath);
+            
+
         fetch(dataPath)
             .then(response => response.json())
             .then(data => {
