@@ -370,7 +370,9 @@
     <script>
     // Danh sách sản phẩm
     let products = [];
-    fetch('../data/products.json')
+           const isGithub = location.hostname.includes("github.io");
+        const dataPath = isGithub ? "/fortune/data/products.json" : "../data/products.json";
+        fetch(dataPath)
         .then(response => response.json())
         .then(data => {
             products = data;    
@@ -521,7 +523,7 @@
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../index.js"></script>
+    <script src="../scripts/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </body>
 

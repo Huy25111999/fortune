@@ -4,7 +4,7 @@
     "code": "SP-A01",
     "name": "Sản phẩm A",
     "desc": "Ghế ngồi làm việc hỗ trợ lưng và cổ, chất liệu lưới thoáng mát.",
-    "image": "/fortune/images/products/product1.png",
+    "image": "/images/products/product1.png",
     "sale": false,
     "category": "sanpham"
   },
@@ -13,7 +13,7 @@
     "code": "SP-A02",
     "name": "Sản phẩm B",
     "desc": "Bàn gỗ MDF chống nước, chân sắt sơn tĩnh điện.",
-    "image": "/fortune/images/products/product2.png",
+    "image": "/images/products/product2.png",
     "sale": false,
     "category": "sanpham"
   },
@@ -22,7 +22,7 @@
     "code": "SP-A01",
     "name": "Sản phẩm C",
     "desc": "Đèn LED ánh sáng ấm, cảm ứng chạm bật/tắt.",
-    "image": "/fortune/images/products/product3.png",
+    "image": "/images/products/product3.png",
     "sale": false,
     "category": "sanpham"
   },
@@ -31,7 +31,7 @@
     "code": "SP-A02",
     "name": "Sản phẩm D",
     "desc": "Tai nghe không dây, âm bass mạnh, pin 12 giờ.",
-    "image": "/fortune/images/products/product4.png",
+    "image": "/images/products/product4.png",
     "sale": false,
     "category": "sanpham"
   },
@@ -40,7 +40,7 @@
     "code": "SP-A02",
     "name": "Sản phẩm",
     "desc": "Giá đỡ màn hình gỗ, nâng cao tư thế ngồi làm việc.",
-    "image": "/fortune/images/products/product1.png",
+    "image": "/images/products/product1.png",
     "category": "sanpham"
   },
   {
@@ -48,7 +48,7 @@
     "code": "SP-A02",
     "name": "Sản phẩm",
     "desc": "Bàn phím cơ switch Blue, LED RGB 16 triệu màu.",
-    "image": "/fortune/images/products/product2.png",
+    "image": "/images/products/product2.png",
     "category": "sanpham"
   },
   {
@@ -56,7 +56,7 @@
     "code": "SP-A02",
     "name": "Sản phẩm",
     "desc": "Chuột thiết kế ergonomic, trọng lượng chỉ 60g.",
-    "image": "/fortune/images/products/product3.png",
+    "image": "/images/products/product3.png",
     "category": "sanpham"
   },
   {
@@ -64,7 +64,7 @@
     "code": "SP-A02",
     "name": "Sản phẩm",
     "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
-    "image": "/fortune/images/products/product4.png",
+    "image": "/images/products/product4.png",
     "category": "ban"
   },
   {
@@ -72,7 +72,7 @@
     "code": "SP-A02",
     "name": "Sản phẩm",
     "desc": "Bàn phím cơ switch Blue, LED RGB 16 triệu màu.",
-    "image": "/fortune/images/products/product2.png",
+    "image": "/images/products/product2.png",
     "category": "sanpham"
   },
   {
@@ -80,7 +80,7 @@
     "code": "SP-A04",
     "name": "Sản phẩm",
     "desc": "Chuột thiết kế ergonomic, trọng lượng chỉ 60g.",
-    "image": "/fortune/images/products/product3.png",
+    "image": "/images/products/product3.png",
     "category": "ghe"
   },
   {
@@ -88,7 +88,7 @@
     "code": "SP-A03",
     "name": "Sản phẩm",
     "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
-    "image": "/fortune/images/products/product4.png",
+    "image": "/images/products/product4.png",
     "category": "den"
   },
   {
@@ -96,7 +96,7 @@
     "code": "SP-A03",
     "name": "Sản phẩm",
     "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
-    "image": "/fortune/images/products/product4.png",
+    "image": "/images/products/product4.png",
     "category": "den"
   },
   {
@@ -104,7 +104,7 @@
     "code": "SP-A03",
     "name": "Sản phẩm",
     "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
-    "image": "/fortune/images/products/product4.png",
+    "image": "/images/products/product4.png",
     "category": "den"
   }
 ]
