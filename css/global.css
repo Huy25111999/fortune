@@ -285,12 +285,12 @@ button.btn:active {
   white-space: nowrap;
 }
 
-.dropdown-menu li:hover {
-  background-color: #e0d9cf;
+.dropdown-menu li:hover a{
+  color: #59626a;
 }
 
 .dropdown-menu li a {
-  color: #5c3d1e;
+  color: #212529;
   line-height: 28.9px;
   text-align: left;
 }
