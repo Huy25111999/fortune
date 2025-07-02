@@ -703,7 +703,7 @@ li.dropdown-item:hover {
 }
 
 .policy-links {
-  margin-top: 104px;
+  margin-top: 122px;
 }
 
 .footer .policy-links a,
@@ -754,6 +754,10 @@ a.nav-link:hover {
 }
 
 @media (max-width: 991px) {
+
+  .footer{
+    padding-bottom: 16px;
+  }
 
   .footer .list-menu-item .card img {
     height: auto;
@@ -872,5 +876,7 @@ a.nav-link:hover {
 @media (min-width: 1163px){
   .footer  .container{
     max-width: 1262px;
+    padding-left: 24px;
+        padding-right: 24px;
   }
 }
