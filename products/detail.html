@@ -138,30 +138,37 @@
 
         <div class="wrapper-container">
             <div class="my-5">
-                <nav aria-label="breadcrumb" class="my-4 pt-4">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="../index.html"
-                                class="text-decoration-none">Trang chủ</a>
-                            <i class="bi bi-chevron-right"></i>
-                        </li>
+                <div class="container">
+                    <nav aria-label="breadcrumb" class="my-4 pt-4">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="../index.html"
+                                    class="text-decoration-none">Trang chủ</a>
+                                <i class="bi bi-chevron-right"></i>
+                            </li>
 
-                        <li class="breadcrumb-item">
-                            <a href="index.html"
-                                class="text-decoration-none">Sản phẩm</a>
-                            <i class="bi bi-chevron-right"></i>
-                        </li>
+                            <li class="breadcrumb-item">
+                                <a href="index.html"
+                                    class="text-decoration-none">Sản phẩm</a>
+                                <i class="bi bi-chevron-right"></i>
+                            </li>
 
-                        <li class="breadcrumb-item active fw-bold text-warning"
-                            aria-current="page">
-                            Chi tiết
-                        </li>
-                    </ol>
-                </nav>
+                            <li
+                                class="breadcrumb-item active fw-bold text-warning"
+                                aria-current="page">
+                                Chi tiết
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
 
                 <div class="container mb-4">
                     <div
                         class="detail-product d-flex justify-content-center flex-wrap gap-5">
+                            <div class="feature d-none text-left w-100">
+                                <h4 id="product-name-mb" class="text-bold">Tên sản
+                                    phẩm</h4>
+                            </div>
                         <div class="detail-product-left text-center mb-3">
                             <!-- <div class="card-img">
                                 <img id="product-image" src alt="Ảnh sản phẩm"
@@ -192,6 +199,7 @@
                             </div>
 
                         </div>
+
 
                         <div class="detail-product-right">
                             <div class="feature">
@@ -323,40 +331,53 @@
                         </div>
                     </div>
 
-                    <!-- Follow our socials -->
+                     <!-- Follow our socials -->
                     <div class>
                         <h5 class="text-white text-normal">Kết nối với chúng
                             tôi</h5>
-                        <ul class="list-unstyled d-flex gap-3">
-                            <li>
-                                <div class="social-icon-wrapper">
-                                    <a href="https://facebook.com"
-                                        target="_blank">
-                                        <img src="../images/icons/icon-zalo.png"
-                                            alt="Zalo">
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="social-icon-wrapper">
-                                    <a href="https://instagram.com"
-                                        target="_blank">
-                                        <img src="../images/icons/icon-fb.png"
-                                            alt="Facebook">
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="social-icon-wrapper">
-                                    <a href="https://youtube.com"
-                                        target="_blank">
-                                        <img
-                                            src="../images/icons/icon-whatsapp.png"
-                                            alt="Whatsapp">
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="follow-socials">
+                            <ul class="list-unstyled d-flex gap-3">
+                                <li>
+                                    <div class="social-icon-wrapper">
+                                        <a href="https://facebook.com"
+                                            target="_blank">
+                                            <div class="card-img">
+                                                <img
+                                                    src="../images/icons/icon-zalo.png"
+                                                    alt="Zalo">
+                                            </div>
+
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="social-icon-wrapper">
+                                        <a href="https://instagram.com"
+                                            target="_blank">
+                                            <div class="card-img">
+                                                 <img
+                                                src="../images/icons/icon-fb.png"
+                                                alt="Facebook">
+                                            </div>
+                                           
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="social-icon-wrapper">
+                                        <a href="https://youtube.com"
+                                            target="_blank">
+                                            <div class="card-img">
+                                                <img
+                                                src="../images/icons/icon-whatsapp.png"
+                                                alt="Whatsapp">
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -547,8 +568,10 @@
             const product = products.find(p => p.id === id);
 
             if (product) {
-                const textNameCode = product.code + '-' + product.name;
+                const textNameCode = product.code + ' - ' + product.name;
                 document.getElementById('product-name').textContent = textNameCode;
+                document.getElementById('product-name-mb').textContent = textNameCode;
+
                  const mainSwiper = document.querySelector('.swiper-main .swiper-wrapper');
                     const thumbsSwiper = document.querySelector('.swiper-thumbs .swiper-wrapper');
 
