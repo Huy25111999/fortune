@@ -237,7 +237,7 @@
                             </div>
 
                             <div class="price">
-                                <h5 class="fw-bold text-title">Giá</h5>
+                                <h5 class="fw-bold text-title">Nhận báo giá</h5>
                                 <p>Nhập thông tin liên hệ để nhận báo giá sản
                                     phẩm từ chúng tôi</p>
                             </div>
@@ -271,6 +271,11 @@
                                         id="email" placeholder="your@email.com">
                                     <span class="text-danger error-message"
                                         id="error-email"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="companyName" class="form-label">Công Ty</label>
+                                    <input type="text" class="form-control"
+                                        id="companyName" placeholder="Nhập tên công ty">
                                 </div>
                                 <div class="mb-3">
                                     <label for="question"
@@ -661,9 +666,10 @@
                         const name = $('#name').val();
                         const phone = $('#phone').val();
                         const email = $('#email').val();
+                        const companyName = $('#companyName').val();
                         const question = $('#question').val();
 
-                        console.log({ name, phone, email, question });
+                        console.log({ name, phone, email, companyName, question });
                     }
                 });
 
