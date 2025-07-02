@@ -870,7 +870,7 @@ a.nav-link:hover {
 }
 
 @media (min-width: 1163px){
-  .container{
+  .footer  .container{
     max-width: 1262px;
   }
 }
