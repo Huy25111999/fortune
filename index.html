@@ -420,11 +420,11 @@
                                         <a href="https://instagram.com"
                                             target="_blank">
                                             <div class="card-img">
-                                                 <img
-                                                src="./images/icons/icon-fb.png"
-                                                alt="Facebook">
+                                                <img
+                                                    src="./images/icons/icon-fb.png"
+                                                    alt="Facebook">
                                             </div>
-                                           
+
                                         </a>
                                     </div>
                                 </li>
@@ -434,10 +434,10 @@
                                             target="_blank">
                                             <div class="card-img">
                                                 <img
-                                                src="./images/icons/icon-whatsapp.png"
-                                                alt="Whatsapp">
+                                                    src="./images/icons/icon-whatsapp.png"
+                                                    alt="Whatsapp">
                                             </div>
-                                            
+
                                         </a>
                                     </div>
                                 </li>
@@ -449,7 +449,7 @@
                 <div class="policy-links">
                     <div class="container px-3">
                         <div class="row justify-content-between">
-                            <div class="col-md-auto">
+                            <div class="col-md-auto d-block d-md-none">
                                 <div class="policy">
                                     <h3
                                         class="text-bold text-uppercase text-white d-none">Chính
@@ -531,90 +531,13 @@
         <script>
 
         /*---Product---*/
-        const products = [
-            {
-                id: 1,
-                name: 'Sản phẩm A',
-                desc: 'Ghế ngồi làm việc hỗ trợ lưng và cổ, chất liệu lưới thoáng mát.',
-                image: './images/products/product1.png',
-                sale: false,
-                category: 'sanpham'
-            },
-            {
-                id: 2,
-                name: 'Sản phẩm B',
-                desc: 'Bàn gỗ MDF chống nước, chân sắt sơn tĩnh điện.',
-                image: './images/products/product2.png',
-                sale: false,
-                category: 'sanpham'
-            },
-            {
-                id: 3,
-                name: 'Sản phẩm C',
-                desc: 'Đèn LED ánh sáng ấm, cảm ứng chạm bật/tắt.',
-                image: './images/products/product3.png',
-                sale: false,
-                category: 'sanpham'
-            },
-            {
-                id: 4,
-                name: 'Sản phẩm D',
-                desc: 'Tai nghe không dây, âm bass mạnh, pin 12 giờ.',
-                image: './images/products/product4.png',
-                sale: false,
-                category: 'sanpham'
-            },
-            {
-                id: 5,
-                name: 'Sản phẩm',
-                desc: 'Giá đỡ màn hình gỗ, nâng cao tư thế ngồi làm việc.',
-                image: './images/products/product1.png',
-                category: 'sanpham'
-            },
-            {
-                id: 6,
-                name: 'Sản phẩm',
-                desc: 'Bàn phím cơ switch Blue, LED RGB 16 triệu màu.',
-                image: './images/products/product2.png',
-                category: 'ban'
-            },
-            {
-                id: 7,
-                name: 'Sản phẩm',
-                desc: 'Chuột thiết kế ergonomic, trọng lượng chỉ 60g.',
-                image: './images/products/product3.png',
-                category: 'ban'
-            },
-            {
-                id: 8,
-                name: 'Sản phẩm',
-                desc: 'Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.',
-                image: './images/products/product4.png',
-                category: 'sanpham'
-            },
-            {
-                id: 9,
-                name: 'Sản phẩm',
-                desc: 'Bàn phím cơ switch Blue, LED RGB 16 triệu màu.',
-                image: './images/products/product2.png',
-                category: 'sanpham'
-            },
-            {
-                id: 10,
-                name: 'Sản phẩm',
-                desc: 'Chuột thiết kế ergonomic, trọng lượng chỉ 60g.',
-                image: './images/products/product3.png',
-                category: 'ghe'
-            },
-            {
-                id: 11,
-                name: 'Sản phẩm',
-                desc: 'Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.',
-                image: './images/products/product4.png',
-                category: 'den'
-            }
-        ];
-
+        let products = [];
+        fetch('./data/products.json')
+            .then(response => response.json())
+            .then(data => {
+                products = data;                            
+                renderProducts(products);
+        });
 
         const productContainer = document.getElementById('product-list');
         const noResult = document.getElementById('noResult');
