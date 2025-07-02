@@ -117,6 +117,7 @@
 .detail-product-right .category .btn {
     font-size: 14px;
     font-weight: 400;
+    min-height: 46px;
 }
 
 a.btn.btn-primary.category-btn {
