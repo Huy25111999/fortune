@@ -1,0 +1,18 @@
+
+.container-about{
+    max-width: 902px;
+    margin: 0 auto;
+}
+
+.container-about .card-inner-text p{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+    color: #6E7787;
+}
+
+@media (max-width: 991px) {
+    .container-about .card-inner-text p{
+        font-size: 16px;
+    }
+  }
