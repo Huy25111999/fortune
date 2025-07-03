@@ -6,7 +6,13 @@
         fetch(dataPath)
             .then(response => response.json())
             .then(data => {
-                products = data;                            
+                products = data; 
+                 if (!isGithub) {
+                    products = products.map(product => ({
+                        ...product,
+                        image: product.image.replace(/^\/fortune\//, '')
+                    }));
+                }                                   
                 renderProducts(products);
         });
 

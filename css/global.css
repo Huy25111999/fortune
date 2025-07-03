@@ -611,6 +611,10 @@ li.dropdown-item:hover {
     width: 50%;
   }
 
+  .container-product .col-md-9{
+    width: 100%;
+  }
+
   .text-title,
   .card-title {
     font-size: 16px;
