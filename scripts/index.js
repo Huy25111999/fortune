@@ -1,43 +1,42 @@
- /*---Product---*/
-        let products = [];
+/*---Product---*/
+let products = [];
 
-        const isGithub = location.hostname.includes("github.io");
-        const dataPath = isGithub ? "/fortune/data/products.json" : "../data/products.json";
-        fetch(dataPath)
-            .then(response => response.json())
-            .then(data => {
-                products = data; 
-                 if (!isGithub) {
-                    products = products.map(product => ({
-                        ...product,
-                        image: product.image.replace(/^\/fortune\//, '')
-                    }));
-                }                                   
-                renderProducts(products);
-        });
+const isGithub = location.hostname.includes("github.io");
+const dataPath = isGithub ? "/fortune/data/products.json" : "../data/products.json";
+fetch(dataPath)
+    .then(response => response.json())
+    .then(data => {
+        products = data;
+        if (!isGithub) {
+            products = products.map(product => ({
+                ...product,
+                image: product.image.replace(/^\/fortune\//, '')
+            }));
+        }
+        renderProducts(products);
+    });
 
-        const productContainer = document.getElementById('product-list');
-        const noResult = document.getElementById('noResult');
+const productContainer = document.getElementById('product-list');
+const noResult = document.getElementById('noResult');
 
-        // Render tối đa 8 sản phẩm
-        function renderProducts(data) {
-            productContainer.innerHTML = '';
-            noResult.style.display = data.length === 0 ? 'block' : 'none';
+function renderProducts(data) {
+    productContainer.innerHTML = '';
+    noResult.style.display = data.length === 0 ? 'block' : 'none';
 
-            const limited = data.slice(0, 8);
-            limited.forEach((p, index) => {
-                const card = document.createElement('div');
-                card.className = 'col-md-3 mb-4 product-card';
-                card.setAttribute('data-name', p.name.toLowerCase());
+    const limited = data.slice(0, 8);
+    limited.forEach((p, index) => {
+        const card = document.createElement('div');
+        card.className = 'col-md-3 mb-4 product-card';
+        card.setAttribute('data-name', p.name.toLowerCase());
 
-                let bestSellerLabel;
-                if (p.sale) {
-                    bestSellerLabel = `<span class="badge rounded-pill position-absolute top-0 end-0">Best-seller</span>`
-                } else {
-                    bestSellerLabel = ``
-                }
+        let bestSellerLabel;
+        if (p.sale) {
+            bestSellerLabel = `<span class="badge rounded-pill position-absolute top-0 end-0">Best-seller</span>`
+        } else {
+            bestSellerLabel = ``
+        }
 
-                card.innerHTML = `
+        card.innerHTML = `
                      <div class="card h-100 text-center card-wrapper">
                         <div class="hover-area">
                             <div class="text-decoration-none text-dark product-link">
@@ -58,49 +57,77 @@
                         </div>
                     </div>
                     `;
-                productContainer.appendChild(card);
-            });
+        productContainer.appendChild(card);
+    });
+}
+
+// Render products
+renderProducts(products);
+
+// Search products
+document.getElementById('searchInput').addEventListener('input', function () {
+    const keyword = this.value.toLowerCase();
+    const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+    renderProducts(filtered);
+});
+
+document.getElementById('quick-search').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const keyword = this.value.toLowerCase();
+        const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+        renderProducts(filtered);
+
+        const productList = document.getElementById('our-products');
+        if (productList) {
+            productList.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
+
+document.querySelectorAll('.list-group-item a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const category = this.getAttribute('data-category');
+
+        let filtered;
+        if (category === 'all') {
+            filtered = products;
+        } else {
+            filtered = products.filter(p => p.category === category);
         }
 
-        // Gọi lần đầu
-        renderProducts(products);
+        renderProducts(filtered);
+    });
+});
 
-        // Xử lý tìm kiếm
-        document.getElementById('searchInput').addEventListener('input', function () {
-            const keyword = this.value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
-            renderProducts(filtered);
-        });
 
-        document.getElementById('quick-search').addEventListener('keydown', function (event) {
-            if (event.key === 'Enter') {
-                event.preventDefault(); // Ngăn form submit nếu có
-                const keyword = this.value.toLowerCase();
-                const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
-                renderProducts(filtered);
+window.addEventListener('DOMContentLoaded', function () {
+    fetch('data/home-site.json')
+        .then(response => response.json())
+        .then(data => {
+            // Container Navbar
+            const navbar = document.getElementById('navbar');
+            navbar.querySelector('.navbar-brand img').src = data.logo;
+            navbar.style.background = data.navBarColor;
 
-                const productList = document.getElementById('our-products');
-                if (productList) {
-                    productList.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        });
-
-        document.querySelectorAll('.list-group-item a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const category = this.getAttribute('data-category');
-
-                let filtered;
-                if (category === 'all') {
-                    filtered = products;
-                } else {
-                    filtered = products.filter(p => p.category === category);
-                }
-
-                renderProducts(filtered);
+            const textNavbar = navbar.querySelectorAll('.navbar-nav a');
+            textNavbar.forEach(a => {
+                a.style.setProperty('color', data.bannerTextColor, 'important');
             });
-        });
 
-   
+            // Container banner
+            const banner = document.getElementById('inner-banner-service');
+            banner.querySelector('.banner-image').src = data.bannerImage;
+            banner.querySelector('.banner-source').srcset = data.bannerImage;
+
+            const textEl = banner.querySelector('.banner-inner-text h3');
+            textEl.textContent = data.bannerText;
+            textEl.style.setProperty('color', data.bannerTextColor, 'important');
+
+        })
+        .catch(error => {
+            console.error('Lỗi khi load dữ liệu banner:', error);
+        });
+});
