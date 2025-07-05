@@ -1,48 +1,48 @@
-    let products = [];
-           const isGithub = location.hostname.includes("github.io");
-        const dataPath = isGithub ? "/fortune/data/products.json" : "../data/products.json";
-        fetch(dataPath)
-        .then(response => response.json())
-        .then(data => {
-            products = data;    
-            if (!isGithub) {
-                    products = products.map(product => ({
-                        ...product,
-                        image: product.image.replace(/^\/fortune\//, '../')
-                    }));
-                }  
-            filterProducts();
-    });
+let products = [];
+const isGithub = location.hostname.includes("github.io");
+const dataPath = isGithub ? "/fortune/data/products.json" : "../data/products.json";
+fetch(dataPath)
+  .then(response => response.json())
+  .then(data => {
+    products = data;
+    if (!isGithub) {
+      products = products.map(product => ({
+        ...product,
+        image: product.image.replace(/^\/fortune\//, '../')
+      }));
+    }
+    filterProducts();
+  });
 
-    let filteredProducts = [...products];
-    const itemsPerPage = 12;
-    let currentPage = 1;
+let filteredProducts = [...products];
+const itemsPerPage = 12;
+let currentPage = 1;
 
-    function renderProducts() {
-      const list = document.getElementById('product-list');
-      list.innerHTML = '';
+function renderProducts() {
+  const list = document.getElementById('product-list');
+  list.innerHTML = '';
 
-      const start = (currentPage - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      const pageItems = filteredProducts.slice(start, end);
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const pageItems = filteredProducts.slice(start, end);
 
-      if (pageItems.length === 0) {
-        list.innerHTML = '<p>Không tìm thấy sản phẩm.</p>';
-        return;
-      }
+  if (pageItems.length === 0) {
+    list.innerHTML = '<p>Không tìm thấy sản phẩm.</p>';
+    return;
+  }
 
-      pageItems.forEach((p, index) => {
-        const col = document.createElement('div');
-        col.className = 'col-md-3 mb-4 product-card';
+  pageItems.forEach((p, index) => {
+    const col = document.createElement('div');
+    col.className = 'col-md-3 mb-4 product-card';
 
-        let bestSellerLabel;
-        if (p.sale) {
-          bestSellerLabel = `<span class="badge rounded-pill position-absolute top-0 end-0">Best-seller</span>`
-        } else {
-          bestSellerLabel = ``
-        }
+    let bestSellerLabel;
+    if (p.sale) {
+      bestSellerLabel = `<span class="badge rounded-pill position-absolute top-0 end-0">Best-seller</span>`
+    } else {
+      bestSellerLabel = ``
+    }
 
-        col.innerHTML = `
+    col.innerHTML = `
             <div class="card h-100 text-center card-wrapper">
                         <div class="hover-area">
                             <div class="text-decoration-none text-dark product-link">
@@ -63,94 +63,97 @@
                         </div>
                     </div>
         `;
-        list.appendChild(col);
-      });
-    }
+    list.appendChild(col);
+    applyLinkThemeColor(window.theme?.link);
 
-    function renderPagination() {
-      const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-      const pagination = document.getElementById('pagination');
-      pagination.innerHTML = '';
+  });
+}
 
-      // Nút Previous
-      const prevLi = document.createElement('li');
-      prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-      prevLi.innerHTML = `<a class="page-link" href="#"><i class="fa-solid fa-chevron-left"></i></a>`;
-      prevLi.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (currentPage > 1) {
-          currentPage--;
-          renderProducts();
-          renderPagination();
-        }
-      });
-      pagination.appendChild(prevLi);
+function renderPagination() {
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const pagination = document.getElementById('pagination');
+  pagination.innerHTML = '';
 
-      for (let i = 1; i <= totalPages; i++) {
-        const li = document.createElement('li');
-        li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-        li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-        li.addEventListener('click', (e) => {
-          e.preventDefault();
-          currentPage = i;
-          renderProducts();
-          renderPagination();
-        });
-        pagination.appendChild(li);
-      }
-
-      // Nút Next
-      const nextLi = document.createElement('li');
-      nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
-      nextLi.innerHTML = `<a class="page-link" href="#"><i class="fa-solid fa-chevron-right"></i></a>`;
-      nextLi.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (currentPage < totalPages) {
-          currentPage++;
-          renderProducts();
-          renderPagination();
-        }
-      });
-      pagination.appendChild(nextLi);
-    }
-
-    let selectedCategory = '';
-    let searchKeyword = '';
-
-    function filterProducts() {
-      filteredProducts = products.filter(p => {
-        const matchKeyword =
-          p.name.toLowerCase().includes(searchKeyword) ||
-          p.desc.toLowerCase().includes(searchKeyword);
-
-        const matchCategory =
-          !selectedCategory || p.category === selectedCategory;
-
-        return matchKeyword && matchCategory;
-      });
-
-      currentPage = 1;
+  // Nút Previous
+  const prevLi = document.createElement('li');
+  prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+  prevLi.innerHTML = `<a class="page-link" href="#"><i class="fa-solid fa-chevron-left"></i></a>`;
+  prevLi.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentPage > 1) {
+      currentPage--;
       renderProducts();
       renderPagination();
     }
+  });
+  pagination.appendChild(prevLi);
 
-    document.querySelectorAll('.list-group-item a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const category = this.getAttribute('data-category');
-        selectedCategory = category === 'all' ? '' : category;
-        filterProducts();
-      });
-
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement('li');
+    li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+    li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+    li.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentPage = i;
+      renderProducts();
+      renderPagination();
     });
+    pagination.appendChild(li);
+  }
+
+  // Nút Next
+  const nextLi = document.createElement('li');
+  nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+  nextLi.innerHTML = `<a class="page-link" href="#"><i class="fa-solid fa-chevron-right"></i></a>`;
+  nextLi.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderProducts();
+      renderPagination();
+    }
+  });
+  pagination.appendChild(nextLi);
+  applyLinkThemeColor(window.theme?.link);
+}
+
+let selectedCategory = '';
+let searchKeyword = '';
+
+function filterProducts() {
+  filteredProducts = products.filter(p => {
+    const matchKeyword =
+      p.name.toLowerCase().includes(searchKeyword) ||
+      p.desc.toLowerCase().includes(searchKeyword);
+
+    const matchCategory =
+      !selectedCategory || p.category === selectedCategory;
+
+    return matchKeyword && matchCategory;
+  });
+
+  currentPage = 1;
+  renderProducts();
+  renderPagination();
+}
+
+document.querySelectorAll('.list-group-item a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const category = this.getAttribute('data-category');
+    selectedCategory = category === 'all' ? '' : category;
+    filterProducts();
+  });
+
+});
 
 
-    document.getElementById('searchInput').addEventListener('input', function () {
-      searchKeyword = this.value.toLowerCase();
-      filterProducts();
-    });
+document.getElementById('searchInput').addEventListener('input', function () {
+  searchKeyword = this.value.toLowerCase();
+  filterProducts();
+});
 
-    // Khởi tạo
-    renderProducts();
-    renderPagination();
+// Khởi tạo
+renderProducts();
+renderPagination();

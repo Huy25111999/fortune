@@ -1,0 +1,33 @@
+{
+  "logo": "https://huy25111999.github.io/fortune/images/logo.png",
+  "navBarColor": "red",
+  "navBarTextColor": "white",
+  "bannerImage": "https://huy25111999.github.io/fortune/images/banner/banner-header.jpg",
+  "bannerText": "Chào mừng đến với công ty ABC",
+  "bannerTextColor": "#ffffff",
+  "overallColorTheme": {
+    "button": "#27a3f3",
+    "header": "#d00823",
+    "link": "red"
+  },
+  "footerColor": "#030389",
+  "footerTextColor": "#3be27c",
+  "footerLogo": "https://huy25111999.github.io/fortune/images/logo-xl.png",
+  "footerSocialLinks": {
+    "zalo": "https://zalo.me/0368949274",
+    "facebook": "https://www.facebook.com/profile.php?id=100071002213830",
+    "whatsapp": "https://wa.me/84368949274"
+  },
+  "footerEmail": "contact@company.com",
+  "footerPhone": "038493843493",
+  "footerPolicyLinks": [
+    "/about-us",
+    "/warranty",
+    "/privacy",
+    "/payment",
+    "/shipping"
+  ],
+  "companyName": "© 2024 wiz",
+  "companyDescription": "Chúng tôi chuyên cung cấp sản phẩm nội thất chất lượng cao.",
+  "aboutUsImage": "https://huy25111999.github.io/fortune/images/about-us-new.png"
+}

@@ -26,10 +26,10 @@
     <body>
         <div class="menu">
             <div class="container">
-                <nav
+                <nav id="navbar"
                     class="navbar fixed-top d-flex justify-content-between align-items-center">
 
-                    <div>
+                    <div id="logo-navbar">
                         <a href="/" class="navbar-brand text-white">
                             <img src="./images/logo.png" alt="Logo"
                                 style="height: 40px;">
@@ -163,12 +163,14 @@
                     </div>
 
                     <div class="container-about my-5">
-                        <div class="card-img">
+                        <div class="card-img" id="about-us-image">
                             <picture>
                                 <source media="(max-width: 991px)"
-                                    srcset="./images/about-us.png">
+                                    srcset="./images/about-us.png"
+                                    class="about-us-source">
                                 <img src="./images/about-us-new.png"
-                                    alt="Cloud based phone system">
+                                    alt="Cloud based phone system"
+                                    class="about-us-img">
                             </picture>
                         </div>
 
@@ -209,14 +211,14 @@
             <div class="container">
                 <div class="list-menu-item d-flex justify-content-between">
                     <div class>
-                        <div class="card-img">
+                        <div class="card-img footer-logo">
                             <img src="./images/logo-xl.png" alt="Logo"
                                 style="height: 102px; margin-top: -16px;">
                         </div>
                     </div>
 
                     <div class>
-                        <a href="about-us.html" class="text-decoration-none">
+                        <a href="./about-us.html" class="text-decoration-none">
                             <h5 class="text-white text-normal">Về chúng tôi</h5>
                         </a>
                     </div>
@@ -224,13 +226,14 @@
                     <div class>
                         <h5 class="text-white text-normal">Liên hệ</h5>
                         <div class="contact-item">
-                            <a href="tel:+11234567893"
+                            <a id="contact-phone" href="tel:+11234567893"
                                 class="text-decoration-none">
                                 <img src="./images/icons/earphone.png"
                                     alt="Facebook">(+1) 123 456
                                 7893</a>
 
-                            <a href="mailto:template@gmail.com"
+                            <a id="contact-email"
+                                href="mailto:template@gmail.com"
                                 class="text-decoration-none">
                                 <img src="./images/icons/email.png"
                                     alt="Facebook"> template@gmail.com
@@ -239,7 +242,7 @@
                         </div>
                     </div>
 
-                       <!-- Follow our socials -->
+                    <!-- Follow our socials -->
                     <div class>
                         <h5 class="text-white text-normal">Kết nối với chúng
                             tôi</h5>
@@ -247,7 +250,7 @@
                             <ul class="list-unstyled d-flex gap-3">
                                 <li>
                                     <div class="social-icon-wrapper">
-                                        <a href="https://facebook.com"
+                                        <a href="https://zalo.me" id="link-zalo"
                                             target="_blank">
                                             <div class="card-img">
                                                 <img
@@ -260,27 +263,29 @@
                                 </li>
                                 <li>
                                     <div class="social-icon-wrapper">
-                                        <a href="https://instagram.com"
+                                        <a href="https://facebook.com"
+                                            id="link-facebook"
                                             target="_blank">
                                             <div class="card-img">
-                                                 <img
-                                                src="./images/icons/icon-fb.png"
-                                                alt="Facebook">
+                                                <img
+                                                    src="./images/icons/icon-fb.png"
+                                                    alt="Facebook">
                                             </div>
-                                           
+
                                         </a>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="social-icon-wrapper">
-                                        <a href="https://youtube.com"
+                                        <a href="https://wa.me"
+                                            id="link-whatsapp"
                                             target="_blank">
                                             <div class="card-img">
                                                 <img
-                                                src="./images/icons/icon-whatsapp.png"
-                                                alt="Whatsapp">
+                                                    src="./images/icons/icon-whatsapp.png"
+                                                    alt="Whatsapp">
                                             </div>
-                                            
+
                                         </a>
                                     </div>
                                 </li>
@@ -303,7 +308,7 @@
                                 <div class="d-flex align-items-center">
                                     <i
                                         class="bi bi-chevron-right text-white d-none"></i>
-                                    <a href="/return-refund"
+                                    <a href="#" id="policy-link-1"
                                         class="text-white text-decoration-none mx-2">Chính
                                         sách bảo hành</a>
                                 </div>
@@ -312,7 +317,7 @@
                                 <div class="d-flex align-items-center">
                                     <i
                                         class="bi bi-chevron-right text-white d-none"></i>
-                                    <a href="/warranty"
+                                    <a href="#" id="policy-link-2"
                                         class="text-white text-decoration-none mx-2">Chính
                                         sách bảo mật</a>
                                 </div>
@@ -321,7 +326,7 @@
                                 <div class="d-flex align-items-center">
                                     <i
                                         class="bi bi-chevron-right text-white d-none"></i>
-                                    <a href="/privacy"
+                                    <a href="#" id="policy-link-3"
                                         class="text-white text-decoration-none mx-2">Chính
                                         sách đổi trả hàng và hoàn tiền</a>
                                 </div>
@@ -330,7 +335,7 @@
                                 <div class="d-flex align-items-center">
                                     <i
                                         class="bi bi-chevron-right text-white d-none"></i>
-                                    <a href="/payment"
+                                    <a href="#" id="policy-link-4"
                                         class="text-white text-decoration-none mx-2">Chính
                                         sách thanh toán</a>
                                 </div>
@@ -339,7 +344,7 @@
                                 <div class="d-flex align-items-center">
                                     <i
                                         class="bi bi-chevron-right text-white d-none"></i>
-                                    <a href="/shipping"
+                                    <a href="#" id="policy-link-5"
                                         class="text-white text-decoration-none mx-2">Chính
                                         sách vận chuyển</a>
                                 </div>
@@ -350,7 +355,9 @@
                             style="height: 1px; background-color: white; margin-top: 16px;"></div>
 
                         <div class="text-center text-white mt-3">
-                            <p class="mb-0 text-white">&copy; 2022 Company Name.
+                            <p id="footer-company"
+                                class="mb-0 text-white">&copy; 2022 Company
+                                Name.
                                 All rights
                                 reserved.</p>
                         </div>
@@ -364,6 +371,7 @@
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="scripts/main.js"></script>
+        <script src="scripts/site.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </body>
 

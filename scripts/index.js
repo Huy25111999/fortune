@@ -101,33 +101,3 @@ document.querySelectorAll('.list-group-item a').forEach(link => {
         renderProducts(filtered);
     });
 });
-
-
-window.addEventListener('DOMContentLoaded', function () {
-    fetch('data/home-site.json')
-        .then(response => response.json())
-        .then(data => {
-            // Container Navbar
-            const navbar = document.getElementById('navbar');
-            navbar.querySelector('.navbar-brand img').src = data.logo;
-            navbar.style.background = data.navBarColor;
-
-            const textNavbar = navbar.querySelectorAll('.navbar-nav a');
-            textNavbar.forEach(a => {
-                a.style.setProperty('color', data.bannerTextColor, 'important');
-            });
-
-            // Container banner
-            const banner = document.getElementById('inner-banner-service');
-            banner.querySelector('.banner-image').src = data.bannerImage;
-            banner.querySelector('.banner-source').srcset = data.bannerImage;
-
-            const textEl = banner.querySelector('.banner-inner-text h3');
-            textEl.textContent = data.bannerText;
-            textEl.style.setProperty('color', data.bannerTextColor, 'important');
-
-        })
-        .catch(error => {
-            console.error('Lỗi khi load dữ liệu banner:', error);
-        });
-});
