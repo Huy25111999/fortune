@@ -8,7 +8,7 @@ fetch(dataPath)
     if (!isGithub) {
       products = products.map(product => ({
         ...product,
-        image: product.image.replace(/^\/fortune\//, '../')
+        mainImage: product.mainImage.replace(/^\/fortune\//, '../')
       }));
     }
     filterProducts();
@@ -47,7 +47,7 @@ function renderProducts() {
                         <div class="hover-area">
                             <div class="text-decoration-none text-dark product-link">
                                 ${bestSellerLabel}
-                                <img src="${p.image}" class="card-img-top" alt="${p.name}">
+                                <img src="${p.mainImage}" class="card-img-top" alt="${p.name}">
                                 <h6 class="card-title text-start mb-0 ps-3">${p.name}</h6>
                             </div>  
                             <div class="card-overlay"></div>
@@ -124,7 +124,7 @@ function filterProducts() {
   filteredProducts = products.filter(p => {
     const matchKeyword =
       p.name.toLowerCase().includes(searchKeyword) ||
-      p.desc.toLowerCase().includes(searchKeyword);
+      p.description.toLowerCase().includes(searchKeyword);
 
     const matchCategory =
       !selectedCategory || p.category === selectedCategory;
