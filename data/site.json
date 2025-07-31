@@ -1,17 +1,17 @@
 {
   "logo": "https://huy25111999.github.io/fortune/images/logo.png",
-  "navBarColor": "red",
+  "navBarColor": "#000000",
   "navBarTextColor": "white",
   "bannerImage": "https://huy25111999.github.io/fortune/images/banner/banner-header.jpg",
   "bannerText": "Chào mừng đến với công ty ABC",
   "bannerTextColor": "#ffffff",
   "overallColorTheme": {
-    "button": "#27a3f3",
+    "button": "#EA0029",
     "header": "#d00823",
-    "link": "red"
+    "link": "#191512"
   },
-  "footerColor": "#030389",
-  "footerTextColor": "#3be27c",
+  "footerColor": "#1D2736",
+  "footerTextColor": "#ffffff",
   "footerLogo": "https://huy25111999.github.io/fortune/images/logo-xl.png",
   "footerSocialLinks": {
     "zalo": "https://zalo.me/0368949274",
