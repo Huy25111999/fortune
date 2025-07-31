@@ -67,3 +67,24 @@ if (scrollBtn) {
         });
     });
 }
+
+const choice = localStorage.getItem('privacy-choice');
+const banner = document.getElementById('privacy-banner');
+const privacyOverlay = document.getElementById('privacy-overlay');
+
+if (!choice && banner && privacyOverlay) {
+    banner.style.display = 'block';
+    privacyOverlay.style.display = 'block';
+}
+function acceptCookies() {
+    localStorage.setItem('privacy-choice', 'accepted');
+    banner.style.display = 'none';
+    privacyOverlay.style.display = 'none';
+}
+
+function rejectCookies() {
+    localStorage.setItem('privacy-choice', 'rejected');
+    banner.style.display = 'none';
+    privacyOverlay.style.display = 'none';
+}
+

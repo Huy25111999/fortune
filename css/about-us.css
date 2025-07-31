@@ -11,6 +11,10 @@
     color: #6E7787;
 }
 
+.container-about .card-img img{
+    width: 100%;
+}
+
 @media (max-width: 991px) {
     .container-about .card-inner-text p{
         font-size: 16px;

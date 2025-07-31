@@ -106,5 +106,45 @@
     "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
     "image": "/fortune/images/products/product4.png",
     "category": "den"
+  },
+   {
+    "id": 14,
+    "code": "SP-A03",
+    "name": "Sản phẩm",
+    "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
+    "image": "/fortune/images/products/product4.png",
+    "category": "den"
+  },
+  {
+    "id": 15,
+    "code": "SP-A03",
+    "name": "Sản phẩm",
+    "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
+    "image": "/fortune/images/products/product4.png",
+    "category": "den"
+  },
+  {
+    "id": 16,
+    "code": "SP-A03",
+    "name": "Sản phẩm",
+    "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
+    "image": "/fortune/images/products/product4.png",
+    "category": "den"
+  },
+    {
+    "id": 17,
+    "code": "SP-A03",
+    "name": "Sản phẩm",
+    "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
+    "image": "/fortune/images/products/product4.png",
+    "category": "den"
+  },
+  {
+    "id": 18,
+    "code": "SPA53",
+    "name": "Sản phẩm A53",
+    "desc": "Hỗ trợ HDMI, USB 3.0, thẻ nhớ SD/TF.",
+    "image": "/fortune/images/products/product4.png",
+    "category": "den"
   }
 ]

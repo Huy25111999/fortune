@@ -15,7 +15,7 @@ fetch(dataPath)
   });
 
 let filteredProducts = [...products];
-const itemsPerPage = 12;
+const itemsPerPage = 8;
 let currentPage = 1;
 
 function renderProducts() {
@@ -71,6 +71,8 @@ function renderProducts() {
 
 function renderPagination() {
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  // const totalPages = Math.min(2, Math.ceil(filteredProducts.length / itemsPerPage));
+
   const pagination = document.getElementById('pagination');
   pagination.innerHTML = '';
 
@@ -88,26 +90,48 @@ function renderPagination() {
   });
   pagination.appendChild(prevLi);
 
+  // for (let i = 1; i <= totalPages; i++) {
+  //   const li = document.createElement('li');
+  //   li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+  //   li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+  //   li.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     currentPage = i;
+  //     renderProducts();
+  //     renderPagination();
+  //   });
+  //   pagination.appendChild(li);
+  // }
+
   for (let i = 1; i <= totalPages; i++) {
+    const isDisabled = i >= 3; // từ trang 3 trở đi sẽ bị disable
     const li = document.createElement('li');
-    li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+    li.className = `page-item ${i === currentPage ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`;
     li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-    li.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = i;
-      renderProducts();
-      renderPagination();
-    });
+
+    if (!isDisabled) {
+      li.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentPage = i;
+        renderProducts();
+        renderPagination();
+      });
+    }
+
     pagination.appendChild(li);
   }
 
   // Nút Next
   const nextLi = document.createElement('li');
-  nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+  // nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+  const isNextDisabled = currentPage >= 2 || currentPage === totalPages;
+  nextLi.className = `page-item ${isNextDisabled ? 'disabled' : ''}`;
   nextLi.innerHTML = `<a class="page-link" href="#"><i class="fa-solid fa-chevron-right"></i></a>`;
+
   nextLi.addEventListener('click', (e) => {
     e.preventDefault();
-    if (currentPage < totalPages) {
+    // if (currentPage < totalPages) {
+    if (currentPage < 2) {
       currentPage++;
       renderProducts();
       renderPagination();
